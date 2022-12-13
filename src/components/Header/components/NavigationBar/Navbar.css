@@ -5,9 +5,8 @@
 }
 
 li {
+  padding: 5px;
   list-style: none;
-  white-space: nowrap;
-  /* display: inline-block; */
 }
 
 li:hover {
@@ -16,12 +15,7 @@ li:hover {
   border-radius: 15px;
 }
 
-.list-item {
-  padding: 5px;
-}
-
 ul {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;

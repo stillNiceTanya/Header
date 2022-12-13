@@ -1,7 +1,5 @@
 .search-input {
-  max-width: 750px;
   min-width: 600px;
-  /* width: 100%; */
   padding: 12px 35px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -13,7 +11,7 @@
 
 .search-icon {
   position: absolute;
-  top: 20px;
+  top: 22px;
   left: 15px;
 }
 

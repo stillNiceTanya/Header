@@ -27,7 +27,7 @@ const Navbar = () => {
         <div>
             <ul>{academyLists.map(el=>(
                 <li key={el.id}
-                className='list-item'
+
                 >{el.category}
                 </li>
             ))}</ul>

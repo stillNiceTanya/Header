@@ -6,8 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './Favorites.css'
 
 const Favorites = () => {
-
-    let currentFavorites = 1
+let currentFavorites = 1
     return (
         <div className='favorites-wrapper'>
        <FontAwesomeIcon icon={faHeart} />

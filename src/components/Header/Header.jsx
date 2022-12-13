@@ -8,12 +8,13 @@ import Navbar from "./components/NavigationBar/Navbar";
 import './styles.css'
 
 export default function Header() {
+
   return (<div>
   <div className="topbar-wrapper">
 <div className="logo-wrapper"><Logo/></div>
 <div className="location-wrapper"><LocationSelectButton/></div>
 <div className="search-wrapper"><SearcForm/></div>
-<UserCard/>
+<UserCard />
 
  </div>
 
