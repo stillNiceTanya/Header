@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+li {
+  padding: 5px;
+  list-style: none;
+}
+
+li:hover {
+  background-color: rgb(226, 223, 223);
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

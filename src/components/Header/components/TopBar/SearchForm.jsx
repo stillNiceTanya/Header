@@ -1,10 +1,10 @@
 import React from 'react';
-import './SearcForm.css';
+import './SearchForm.css';
 
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const SearcForm = () => {
+const SearchForm = () => {
   return (
     <div className="input-wrapper">
       <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon" />
@@ -19,4 +19,4 @@ const SearcForm = () => {
   );
 };
 
-export default SearcForm;
+export default SearchForm;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './components/TopBar/Logo';
 import LocationSelectButton from './components/TopBar/LocationSelectButton';
-import SearcForm from './components/TopBar/SearcForm';
+import SearchForm from './components/TopBar/SearchForm';
 import UserCard from './components/TopBar/UserCard';
 import Navbar from './components/NavigationBar/Navbar';
 
@@ -18,7 +18,7 @@ export default function Header() {
           <LocationSelectButton />
         </div>
         <div className="search-wrapper">
-          <SearcForm />
+          <SearchForm />
         </div>
         <UserCard />
       </div>
