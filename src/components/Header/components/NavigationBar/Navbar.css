@@ -2,12 +2,16 @@
   background-color: rgb(226, 223, 223);
   cursor: pointer;
   border-radius: 15px;
+  list-style: none;
 }
 
 .navbar {
-  padding: 5px;
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.navbar-list {
+  padding: 5px;
 }
