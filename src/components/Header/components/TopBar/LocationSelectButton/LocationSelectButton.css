@@ -1,0 +1,9 @@
+.location-select-button {
+  display: flex;
+  align-items: center;
+}
+
+.location-icon {
+  height: 20px;
+  margin-right: 5px;
+}

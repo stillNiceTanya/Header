@@ -1,21 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-}
-
-li {
-  padding: 5px;
-  list-style: none;
-}
-
-li:hover {
+.navbar-list:hover {
   background-color: rgb(226, 223, 223);
   cursor: pointer;
   border-radius: 15px;
 }
 
-ul {
+.navbar {
+  padding: 5px;
+  list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;

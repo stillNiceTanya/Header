@@ -1,9 +1,9 @@
-.location-select-button {
+.favorites-wrapper {
   display: flex;
   align-items: center;
+  margin-right: 40px;
 }
 
-.location-img {
-  height: 20px;
+.favorites-icon {
   margin-right: 5px;
 }
