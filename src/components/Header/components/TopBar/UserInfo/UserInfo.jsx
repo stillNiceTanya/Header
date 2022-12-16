@@ -6,7 +6,7 @@ import ava from "../img/ava.jpeg";
 const UserInfo = () => {
   return (
     <div className="user-info-wrapper">
-      <p className="user-name">Екатерина</p>
+      <span className="user-name">Екатерина</span>
       <img
         src={ava}
         alt="avatar"

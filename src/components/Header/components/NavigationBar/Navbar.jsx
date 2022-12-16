@@ -1,15 +1,15 @@
 import React from "react";
-import academyLists from "./constants.js";
+import { navigationItems } from "./constants";
 
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <ul className="navbar">
-      {academyLists.map((el) => (
+      {navigationItems.map((el) => (
         <li
           key={el.id}
-          className="navbar-list"
+          className="navbar-item"
         >
           {el.categoryTitle}
         </li>

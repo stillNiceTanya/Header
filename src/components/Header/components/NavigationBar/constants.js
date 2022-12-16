@@ -1,4 +1,4 @@
-const academyLists = [
+const navigationItems = [
   { id: 1, categoryTitle: "Вузы" },
   { id: 2, categoryTitle: "Колледжи" },
   { id: 3, categoryTitle: "Техникумы" },
@@ -10,4 +10,4 @@ const academyLists = [
   { id: 9, categoryTitle: "Тест на профориентацию" },
 ];
 
-export default academyLists;
+export { navigationItems };

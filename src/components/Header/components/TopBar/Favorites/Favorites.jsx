@@ -11,7 +11,7 @@ const Favorites = () => {
         <FontAwesomeIcon icon={faHeart} />
       </div>
 
-      <div>1</div>
+      <span>1</span>
     </div>
   );
 };
