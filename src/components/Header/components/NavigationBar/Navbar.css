@@ -1,0 +1,16 @@
+.navbar-item:hover {
+  background-color: rgb(226, 223, 223);
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-item {
+  padding: 5px;
+}

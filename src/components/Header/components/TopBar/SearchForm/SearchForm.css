@@ -1,0 +1,19 @@
+.search-input {
+  min-width: 450px;
+  padding: 12px 20px 12px 35px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-color: rgb(226, 223, 223);
+  border: none;
+  text-align: center;
+}
+
+.search-icon {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+}
+
+.input-wrapper {
+  position: relative;
+}

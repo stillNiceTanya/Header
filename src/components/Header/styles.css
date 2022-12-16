@@ -1,0 +1,27 @@
+.topbar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 150px;
+}
+
+.topbar-wrapper,
+.navigation-wrapper {
+  background-color: white;
+}
+
+.navigation-wrapper {
+  padding: 0 150px 20px 150px;
+}
+
+.logo-wrapper {
+  margin-right: 30px;
+}
+
+.location-wrapper {
+  margin-right: 70px;
+}
+
+.search-wrapper {
+  margin-right: 110px;
+}
