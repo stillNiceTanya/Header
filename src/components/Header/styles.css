@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 150px;
+  padding: 30px 100px;
 }
 
 .topbar-wrapper,
@@ -11,7 +11,7 @@
 }
 
 .navigation-wrapper {
-  padding: 0 150px 20px 150px;
+  padding: 0 100px 20px 100px;
 }
 
 .logo-wrapper {
@@ -24,4 +24,27 @@
 
 .search-wrapper {
   margin-right: 110px;
+}
+
+@media screen and (max-width: 600px) {
+  .burger-responsive {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 25px 15px;
+    justify-content: space-between;
+  }
+
+  .navigation-wrapper,
+  .logo-wrapper,
+  .topbar-wrapper,
+  .search-wrapper {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .burger-responsive {
+    display: none;
+  }
 }
