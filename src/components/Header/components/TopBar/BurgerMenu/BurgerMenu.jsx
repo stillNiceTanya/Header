@@ -4,18 +4,18 @@ import "./BurgerMenu.css";
 
 const BurgerMenu = () => {
   return (
-    <section class="top-nav">
+    <section className="top-nav">
       <input
         id="menu-toggle"
         type="checkbox"
       />
       <label
-        class="menu-button-container"
-        for="menu-toggle"
+        className="menu-button-container"
+        htmlFor="menu-toggle"
       >
-        <div class="menu-button"></div>
+        <div className="menu-button"></div>
       </label>
-      <ul class="menu">
+      <ul className="menu">
         {/* <li>One</li>
         <li>Two</li>
         <li>Three</li>

@@ -1,17 +1,17 @@
+.header-wrapper {
+  padding: 4% 10%;
+  background-color: white;
+}
+
 .topbar-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 100px;
-}
-
-.topbar-wrapper,
-.navigation-wrapper {
-  background-color: white;
 }
 
 .navigation-wrapper {
-  padding: 0 100px 20px 100px;
+  /* padding: 0 100px 20px 100px; */
+  margin-top: 30px;
 }
 
 .logo-wrapper {
@@ -31,14 +31,15 @@
     display: flex;
     align-items: center;
     background-color: white;
-    padding: 25px 15px;
+    padding: 3% 8%;
     justify-content: space-between;
   }
 
   .navigation-wrapper,
   .logo-wrapper,
   .topbar-wrapper,
-  .search-wrapper {
+  .search-wrapper,
+  .header-wrapper {
     display: none;
   }
 }

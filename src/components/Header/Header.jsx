@@ -19,21 +19,23 @@ export default function Header() {
         <UserCard />
       </div>
 
-      <div className="topbar-wrapper">
-        <div className="logo-wrapper">
-          <Logo />
+      <div className="header-wrapper">
+        <div className="topbar-wrapper">
+          <div className="logo-wrapper">
+            <Logo />
+          </div>
+          <div className="location-wrapper">
+            <LocationSelectButton />
+          </div>
+          <div className="search-wrapper">
+            <SearchForm />
+          </div>
+          <UserCard />
         </div>
-        <div className="location-wrapper">
-          <LocationSelectButton />
-        </div>
-        <div className="search-wrapper">
-          <SearchForm />
-        </div>
-        <UserCard />
-      </div>
 
-      <div className="navigation-wrapper">
-        <Navbar />
+        <div className="navigation-wrapper">
+          <Navbar />
+        </div>
       </div>
     </>
   );
