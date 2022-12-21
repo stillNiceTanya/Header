@@ -2,9 +2,3 @@
   display: flex;
   align-items: center;
 }
-/* 
-@media screen and (max-width: 600px) {
-  .user-card-wrapper {
-    display: none;
-  }
-} */

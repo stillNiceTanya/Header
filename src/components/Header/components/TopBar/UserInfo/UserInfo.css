@@ -15,8 +15,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  .avatar,
-  .user-name,
   .user-info-wrapper {
     display: none;
   }

@@ -1,5 +1,5 @@
 .header-wrapper {
-  padding: 4% 10%;
+  padding: 2em 3em;
   background-color: white;
 }
 
@@ -10,16 +10,12 @@
 }
 
 .navigation-wrapper {
-  /* padding: 0 100px 20px 100px; */
   margin-top: 30px;
-}
-
-.logo-wrapper {
-  margin-right: 30px;
 }
 
 .location-wrapper {
   margin-right: 70px;
+  margin-left: 30px;
 }
 
 .search-wrapper {
@@ -27,19 +23,9 @@
 }
 
 @media screen and (max-width: 600px) {
-  .burger-responsive {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    padding: 3% 8%;
-    justify-content: space-between;
-  }
-
   .navigation-wrapper,
-  .logo-wrapper,
-  .topbar-wrapper,
-  .search-wrapper,
-  .header-wrapper {
+  .location-wrapper,
+  .search-wrapper {
     display: none;
   }
 }

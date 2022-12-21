@@ -19,9 +19,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .input-wrapper,
-  .search-icon,
-  .search-input {
+  .input-wrapper {
     display: none;
   }
 }

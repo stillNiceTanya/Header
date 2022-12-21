@@ -11,19 +11,12 @@ import "./styles.css";
 export default function Header() {
   return (
     <>
-      <div className="burger-responsive">
-        <BurgerMenu />
-
-        <Logo />
-
-        <UserCard />
-      </div>
-
       <div className="header-wrapper">
         <div className="topbar-wrapper">
-          <div className="logo-wrapper">
-            <Logo />
+          <div className="burger-responsive">
+            <BurgerMenu />
           </div>
+          <Logo />
           <div className="location-wrapper">
             <LocationSelectButton />
           </div>

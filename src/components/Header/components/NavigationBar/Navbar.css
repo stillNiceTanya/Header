@@ -16,9 +16,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .navbar-item,
-  .navbar,
-  .navbar-item:hover {
+  .navbar {
     display: none;
   }
 }
