@@ -22,16 +22,17 @@
   margin-right: 110px;
 }
 
+.burger-responsive {
+  display: none;
+}
+
 @media screen and (max-width: 600px) {
   .navigation-wrapper,
   .location-wrapper,
   .search-wrapper {
     display: none;
   }
-}
-
-@media screen and (min-width: 600px) {
   .burger-responsive {
-    display: none;
+    display: flex;
   }
 }
