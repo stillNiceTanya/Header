@@ -41,5 +41,6 @@
 @media (max-width: 600px) {
   .menu-button-container {
     display: flex;
+    width: 30px;
   }
 }

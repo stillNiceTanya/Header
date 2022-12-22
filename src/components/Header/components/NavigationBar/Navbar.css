@@ -14,9 +14,3 @@
 .navbar-item {
   padding: 5px;
 }
-
-@media screen and (max-width: 600px) {
-  .navbar {
-    display: none;
-  }
-}

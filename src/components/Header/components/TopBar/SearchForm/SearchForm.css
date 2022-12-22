@@ -17,9 +17,3 @@
 .input-wrapper {
   position: relative;
 }
-
-@media screen and (max-width: 600px) {
-  .input-wrapper {
-    display: none;
-  }
-}
