@@ -4,27 +4,31 @@ import LocationSelectButton from "./components/TopBar/LocationSelectButton/Locat
 import SearchForm from "./components/TopBar/SearchForm/SearchForm";
 import UserCard from "./components/TopBar/UserCard/UserCard";
 import Navbar from "./components/NavigationBar/Navbar";
+import BurgerMenu from "./components/TopBar/BurgerMenu/BurgerMenu";
 
 import "./styles.css";
 
 export default function Header() {
   return (
     <>
-      <div className="topbar-wrapper">
-        <div className="logo-wrapper">
+      <div className="header-wrapper">
+        <div className="topbar-wrapper">
+          <div className="burger-responsive">
+            <BurgerMenu />
+          </div>
           <Logo />
+          <div className="location-wrapper">
+            <LocationSelectButton />
+          </div>
+          <div className="search-wrapper">
+            <SearchForm />
+          </div>
+          <UserCard />
         </div>
-        <div className="location-wrapper">
-          <LocationSelectButton />
-        </div>
-        <div className="search-wrapper">
-          <SearchForm />
-        </div>
-        <UserCard />
-      </div>
 
-      <div className="navigation-wrapper">
-        <Navbar />
+        <div className="navigation-wrapper">
+          <Navbar />
+        </div>
       </div>
     </>
   );

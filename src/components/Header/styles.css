@@ -1,27 +1,38 @@
+.header-wrapper {
+  padding: 2em 3em;
+  background-color: white;
+}
+
 .topbar-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 150px;
-}
-
-.topbar-wrapper,
-.navigation-wrapper {
-  background-color: white;
 }
 
 .navigation-wrapper {
-  padding: 0 150px 20px 150px;
-}
-
-.logo-wrapper {
-  margin-right: 30px;
+  margin-top: 30px;
 }
 
 .location-wrapper {
   margin-right: 70px;
+  margin-left: 30px;
 }
 
 .search-wrapper {
   margin-right: 110px;
+}
+
+.burger-responsive {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .navigation-wrapper,
+  .location-wrapper,
+  .search-wrapper {
+    display: none;
+  }
+  .burger-responsive {
+    display: flex;
+  }
 }

@@ -7,3 +7,9 @@
 .favorites-icon {
   margin-right: 5px;
 }
+
+@media screen and (max-width: 600px) {
+  .favorites-wrapper {
+    margin-right: 0;
+  }
+}
