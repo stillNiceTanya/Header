@@ -1,0 +1,42 @@
+.navbar-item:hover {
+  background-color: rgb(226, 223, 223);
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-item {
+  padding: 5px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.menu-wrapper {
+  overflow: hidden;
+}
+
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-button {
+  width: 30px;
+  height: 30px;
+  padding: 10px 10px;
+  border: none;
+}
+
+.img-button {
+  width: 20px;
+  height: 20px;
+  stroke: blue;
+}
