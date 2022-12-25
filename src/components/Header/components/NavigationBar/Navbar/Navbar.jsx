@@ -5,23 +5,25 @@ import "./Navbar.css";
 
 function Navbar() {
   const list = useRef(null);
-  const [noArrow, setArrow] = useState(false);
+  const [showArrow, setShowArrow] = useState(false);
 
   function handleResize(event) {
     console.log(list.current.clientWidth, list.current.scrollWidth);
     const hasArrows = list.current.scrollWidth > list.current.clientWidth;
-    setArrow(hasArrows ? "" : ""); // если hasArrows тру, то рендерить баттон
+    setShowArrow(hasArrows); // если hasArrows тру, то рендерить баттон
   }
 
   useEffect(() => {
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <div className="navbar-wrapper">
-      <Button>
-        <svg
+      {/* {showArrow && <Button />} */}
+
+      {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           className="img-button"
           fill="none"
@@ -35,8 +37,8 @@ function Navbar() {
             stroke-linejoin="round"
             d="M15.75 19.5L8.25 12l7.5-7.5"
           />
-        </svg>
-      </Button>
+        </svg> */}
+
       <div className="menu-wrapper">
         <ul
           className="navbar"
@@ -53,23 +55,25 @@ function Navbar() {
         </ul>
       </div>
 
-      <Button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="img-button"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-6 h-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-          />
-        </svg>
-      </Button>
+      {showArrow && (
+        <Button>
+          {" "}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="img-button"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </Button>
+      )}
     </div>
   );
 }

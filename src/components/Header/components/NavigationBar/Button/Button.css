@@ -1,6 +1,7 @@
 .button {
-  padding: 15px 15px;
-  /* border: none; */
+  display: inline-block;
+  align-items: center;
+  border: none;
   background-color: white;
   cursor: pointer;
 }
