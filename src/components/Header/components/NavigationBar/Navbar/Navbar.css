@@ -5,6 +5,8 @@
 }
 
 .navbar {
+  position: relative;
+  left: 10px;
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -19,6 +21,7 @@
 }
 
 .menu-wrapper {
+  position: relative;
   overflow: hidden;
 }
 
@@ -36,7 +39,6 @@
 }
 
 .img-button {
-  width: 20px;
-  height: 20px;
+  height: 100%;
   stroke: rgb(41, 40, 40);
 }

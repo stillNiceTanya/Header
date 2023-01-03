@@ -5,44 +5,75 @@ import "./Navbar.css";
 
 function Navbar() {
   const list = useRef(null);
-  const [showArrow, setShowArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(false);
+  const [menuLeftPosition, setMenuLeftPosition] = useState(0);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+
+  // TODO: Если нажимаем на правую кнопку, все прокручивается, то появляется левая, нажимаем левую - прокрутка
+  // TODO добавить чтобы прокрутка останавливалась когда меню полностью прокурутится
 
   function handleResize(event) {
-    console.log(list.current.clientWidth, list.current.scrollWidth);
-    const hasArrows = list.current.scrollWidth > list.current.clientWidth;
-    setShowArrow(hasArrows); // если hasArrows тру, то рендерить баттон
+    const hasRightArrows = list.current.scrollWidth > list.current.clientWidth;
+    setShowRightArrow(hasRightArrows);
   }
 
   useEffect(() => {
     handleResize();
+
     window.addEventListener("resize", handleResize);
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  function handleRightArrowClick() {
+    const newLeftPosition = menuLeftPosition - 150;
+
+    const hasLeftArrows = newLeftPosition < 0;
+    setShowLeftArrow(hasLeftArrows);
+
+    setMenuLeftPosition(newLeftPosition);
+
+    console.log(getComputedStyle(list.current));
+    if (menuLeftPosition < -440) {
+      console.log("aaa");
+      console.log(list.current.clientWidth);
+      setShowRightArrow(false);
+    }
+  }
+
+  function handleLefttArrowClick() {
+    console.log("left clicked");
+    setMenuLeftPosition(menuLeftPosition + 150);
+  }
+
   return (
     <div className="navbar-wrapper">
-      {/* {showArrow && <Button />} */}
-
-      {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="img-button"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-6 h-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M15.75 19.5L8.25 12l7.5-7.5"
-          />
-        </svg> */}
-
+      {showLeftArrow && (
+        <Button onClick={handleLefttArrowClick}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="img-button"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+        </Button>
+      )}
       <div className="menu-wrapper">
         <ul
           className="navbar"
           ref={list}
+          style={{
+            left: `${menuLeftPosition}px`,
+            transition: "all, 0.5s ",
+          }}
         >
           {navigationItems.map((el) => (
             <li
@@ -54,21 +85,20 @@ function Navbar() {
           ))}
         </ul>
       </div>
-
-      {showArrow && (
-        <Button>
+      {showRightArrow && (
+        <Button onClick={handleRightArrowClick}>
           {" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="img-button"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M8.25 4.5l7.5 7.5-7.5 7.5"
             />
           </svg>

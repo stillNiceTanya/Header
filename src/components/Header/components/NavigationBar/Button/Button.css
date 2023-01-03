@@ -1,7 +1,22 @@
 .button {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  width: 20px;
+  height: 30px;
+  position: relative;
   border: none;
   background-color: white;
   cursor: pointer;
+}
+
+.button::before {
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 100%;
+  top: 0px;
+  right: 100%;
+  content: "";
+  background: linear-gradient(to left, white 0%, transparent 100%);
 }
