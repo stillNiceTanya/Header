@@ -8,10 +8,14 @@ function Navbar() {
   const [showRightArrow, setShowRightArrow] = useState(false);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
 
-  // TODO убрать кнопку когда меню полностью пркорутилось
-
   function handleResize(event) {
-    setShowRightArrow(list.current.scrollWidth > list.current.clientWidth);
+    const isHorizontalScrollEnded =
+      list.current.offsetWidth + list.current.scrollLeft >=
+      list.current.scrollWidth;
+
+    const isContentScrollobly =
+      list.current.scrollWidth > list.current.clientWidth;
+    setShowRightArrow(isContentScrollobly && !isHorizontalScrollEnded);
   }
 
   useEffect(() => {
@@ -21,19 +25,22 @@ function Navbar() {
   }, []);
 
   function handleRightArrowClick() {
-    list.current.scrollBy({ left: 120 });
+    list.current.scrollBy({ behavior: "smooth", left: 120 });
   }
 
   function handleLefttArrowClick() {
-    list.current.scrollBy({ left: -120 });
+    list.current.scrollBy({ behavior: "smooth", left: -120 });
   }
 
   function handleScroll(event) {
     const scrollLeft = list.current.scrollLeft;
-    // console.log(scrollLeft);
-
     setShowLeftArrow(scrollLeft >= 1);
-    console.log(list.current.offsetWidth);
+
+    const unMountRightArrow =
+      list.current.offsetWidth + list.current.scrollLeft >=
+      list.current.scrollWidth;
+
+    setShowRightArrow(!unMountRightArrow);
   }
 
   return (
