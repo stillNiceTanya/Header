@@ -1,7 +1,7 @@
 .favorites-wrapper {
   display: flex;
   align-items: center;
-  margin-right: 40px;
+  margin-right: 1rem;
 }
 
 .favorites-icon {

@@ -5,8 +5,8 @@
 }
 
 .navbar {
-  position: relative;
-  left: 10px;
+  /* position: relative; */
+  /* left: 10px; */
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -21,8 +21,8 @@
 }
 
 .menu-wrapper {
-  position: relative;
-  overflow: hidden;
+  /* position: relative; */
+  overflow: auto;
 }
 
 .navbar-wrapper {
@@ -41,4 +41,13 @@
 .img-button {
   height: 100%;
   stroke: rgb(41, 40, 40);
+}
+
+.hide-scroll {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+/Edge */
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none;
 }

@@ -6,44 +6,34 @@ import "./Navbar.css";
 function Navbar() {
   const list = useRef(null);
   const [showRightArrow, setShowRightArrow] = useState(false);
-  const [menuLeftPosition, setMenuLeftPosition] = useState(0);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
 
-  // TODO: Если нажимаем на правую кнопку, все прокручивается, то появляется левая, нажимаем левую - прокрутка
-  // TODO добавить чтобы прокрутка останавливалась когда меню полностью прокурутится
+  // TODO убрать кнопку когда меню полностью пркорутилось
 
   function handleResize(event) {
-    const hasRightArrows = list.current.scrollWidth > list.current.clientWidth;
-    setShowRightArrow(hasRightArrows);
+    setShowRightArrow(list.current.scrollWidth > list.current.clientWidth);
   }
 
   useEffect(() => {
     handleResize();
-
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   function handleRightArrowClick() {
-    const newLeftPosition = menuLeftPosition - 150;
-
-    const hasLeftArrows = newLeftPosition < 0;
-    setShowLeftArrow(hasLeftArrows);
-
-    setMenuLeftPosition(newLeftPosition);
-
-    console.log(getComputedStyle(list.current));
-    if (menuLeftPosition < -440) {
-      console.log("aaa");
-      console.log(list.current.clientWidth);
-      setShowRightArrow(false);
-    }
+    list.current.scrollBy({ left: 120 });
   }
 
   function handleLefttArrowClick() {
-    console.log("left clicked");
-    setMenuLeftPosition(menuLeftPosition + 150);
+    list.current.scrollBy({ left: -120 });
+  }
+
+  function handleScroll(event) {
+    const scrollLeft = list.current.scrollLeft;
+    // console.log(scrollLeft);
+
+    setShowLeftArrow(scrollLeft >= 1);
+    console.log(list.current.offsetWidth);
   }
 
   return (
@@ -66,15 +56,12 @@ function Navbar() {
           </svg>
         </Button>
       )}
-      <div className="menu-wrapper">
-        <ul
-          className="navbar"
-          ref={list}
-          style={{
-            left: `${menuLeftPosition}px`,
-            transition: "all, 0.5s ",
-          }}
-        >
+      <div
+        onScroll={handleScroll}
+        className="menu-wrapper hide-scroll"
+        ref={list}
+      >
+        <ul className="navbar">
           {navigationItems.map((el) => (
             <li
               key={el.id}
