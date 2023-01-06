@@ -2,13 +2,13 @@ import React from "react";
 
 import "./Button.css";
 
-const Button = (props) => {
+const Button = ({ onClick, children }) => {
   return (
     <button
       className="button"
-      onClick={props.onClick}
+      onClick={onClick}
     >
-      {props.children}
+      {children}
     </button>
   );
 };

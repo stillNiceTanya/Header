@@ -5,8 +5,6 @@
 }
 
 .navbar {
-  /* position: relative; */
-  /* left: 10px; */
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -21,11 +19,11 @@
 }
 
 .menu-wrapper {
-  /* position: relative; */
   overflow: auto;
 }
 
 .navbar-wrapper {
+  /* position: relative; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,7 +37,9 @@
 }
 
 .img-button {
-  height: 100%;
+  position: absolute;
+  /* right: -30px; */
+  height: 25px;
   stroke: rgb(41, 40, 40);
 }
 

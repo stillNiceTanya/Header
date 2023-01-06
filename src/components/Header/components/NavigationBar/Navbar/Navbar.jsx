@@ -4,17 +4,17 @@ import Button from "../Button/Button";
 import "./Navbar.css";
 
 function Navbar() {
-  const list = useRef(null);
+  const menuWrapperRef = useRef(null);
   const [showRightArrow, setShowRightArrow] = useState(false);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
 
   function handleResize(event) {
     const isHorizontalScrollEnded =
-      list.current.offsetWidth + list.current.scrollLeft >=
-      list.current.scrollWidth;
+      menuWrapperRef.current.offsetWidth + menuWrapperRef.current.scrollLeft >=
+      menuWrapperRef.current.scrollWidth;
 
     const isContentScrollobly =
-      list.current.scrollWidth > list.current.clientWidth;
+      menuWrapperRef.current.scrollWidth > menuWrapperRef.current.clientWidth;
     setShowRightArrow(isContentScrollobly && !isHorizontalScrollEnded);
   }
 
@@ -25,22 +25,22 @@ function Navbar() {
   }, []);
 
   function handleRightArrowClick() {
-    list.current.scrollBy({ behavior: "smooth", left: 120 });
+    menuWrapperRef.current.scrollBy({ behavior: "smooth", left: 120 });
   }
 
   function handleLefttArrowClick() {
-    list.current.scrollBy({ behavior: "smooth", left: -120 });
+    menuWrapperRef.current.scrollBy({ behavior: "smooth", left: -120 });
   }
 
   function handleScroll(event) {
-    const scrollLeft = list.current.scrollLeft;
-    setShowLeftArrow(scrollLeft >= 1);
+    const scrollLeft = menuWrapperRef.current.scrollLeft;
+    setShowLeftArrow(scrollLeft > 0);
 
-    const unMountRightArrow =
-      list.current.offsetWidth + list.current.scrollLeft >=
-      list.current.scrollWidth;
+    const isHorizontalScrollEnded =
+      menuWrapperRef.current.offsetWidth + menuWrapperRef.current.scrollLeft >=
+      menuWrapperRef.current.scrollWidth;
 
-    setShowRightArrow(!unMountRightArrow);
+    setShowRightArrow(!isHorizontalScrollEnded);
   }
 
   return (
@@ -49,7 +49,7 @@ function Navbar() {
         <Button onClick={handleLefttArrowClick}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="img-button"
+            className="img-button "
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
@@ -66,7 +66,7 @@ function Navbar() {
       <div
         onScroll={handleScroll}
         className="menu-wrapper hide-scroll"
-        ref={list}
+        ref={menuWrapperRef}
       >
         <ul className="navbar">
           {navigationItems.map((el) => (
@@ -81,7 +81,6 @@ function Navbar() {
       </div>
       {showRightArrow && (
         <Button onClick={handleRightArrowClick}>
-          {" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="img-button"
