@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 
-.button::before {
+/* .button::before {
   position: absolute;
   display: block;
   width: 80px;
@@ -19,4 +19,4 @@
   right: 100%;
   content: "";
   background: linear-gradient(to left, white 0%, transparent 100%);
-}
+} */

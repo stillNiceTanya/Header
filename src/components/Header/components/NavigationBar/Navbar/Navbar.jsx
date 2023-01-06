@@ -46,10 +46,13 @@ function Navbar() {
   return (
     <div className="navbar-wrapper">
       {showLeftArrow && (
-        <Button onClick={handleLefttArrowClick}>
+        <Button
+          onClick={handleLefttArrowClick}
+          className="with-right-fader"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="img-button "
+            className="img-button img-button-left"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
@@ -80,10 +83,13 @@ function Navbar() {
         </ul>
       </div>
       {showRightArrow && (
-        <Button onClick={handleRightArrowClick}>
+        <Button
+          onClick={handleRightArrowClick}
+          className="with-left-fader"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="img-button"
+            className="img-button img-button-right"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"

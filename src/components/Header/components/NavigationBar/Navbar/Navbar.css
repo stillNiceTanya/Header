@@ -23,7 +23,7 @@
 }
 
 .navbar-wrapper {
-  /* position: relative; */
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,9 +38,39 @@
 
 .img-button {
   position: absolute;
-  /* right: -30px; */
   height: 25px;
   stroke: rgb(41, 40, 40);
+}
+
+.img-button-right {
+  right: -20px;
+}
+
+.img-button-left {
+  right: -3px;
+}
+
+.with-left-fader:before {
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 100%;
+  top: 0px;
+  right: 100%;
+  content: "";
+  background: linear-gradient(to left, white 0%, transparent 100%);
+}
+
+.with-right-fader::after {
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 100%;
+  top: 0px;
+  left: 0;
+  right: 100%;
+  content: "";
+  background: linear-gradient(to left, white 0%, transparent 100%);
 }
 
 .hide-scroll {
