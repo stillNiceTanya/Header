@@ -13,9 +13,9 @@ function Navbar() {
       menuWrapperRef.current.offsetWidth + menuWrapperRef.current.scrollLeft >=
       menuWrapperRef.current.scrollWidth;
 
-    const isContentScrollobly =
+    const isMenuWrapperScrollable =
       menuWrapperRef.current.scrollWidth > menuWrapperRef.current.clientWidth;
-    setShowRightArrow(isContentScrollobly && !isHorizontalScrollEnded);
+    setShowRightArrow(isMenuWrapperScrollable && !isHorizontalScrollEnded);
   }
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function Navbar() {
     menuWrapperRef.current.scrollBy({ behavior: "smooth", left: 120 });
   }
 
-  function handleLefttArrowClick() {
+  function handleLeftArrowClick() {
     menuWrapperRef.current.scrollBy({ behavior: "smooth", left: -120 });
   }
 
@@ -47,7 +47,7 @@ function Navbar() {
     <div className="navbar-wrapper">
       {showLeftArrow && (
         <Button
-          onClick={handleLefttArrowClick}
+          onClick={handleLeftArrowClick}
           className="with-right-fader"
         >
           <svg
