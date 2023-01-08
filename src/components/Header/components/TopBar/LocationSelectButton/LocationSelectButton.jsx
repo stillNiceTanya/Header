@@ -12,7 +12,7 @@ const LocationSelectButton = () => {
         icon={faCompass}
         className="location-icon"
       />
-      <span>Москва</span>
+      <span>Сеул</span>
     </div>
   );
 };

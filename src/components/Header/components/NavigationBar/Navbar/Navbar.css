@@ -1,0 +1,83 @@
+.navbar-item:hover {
+  background-color: rgb(226, 223, 223);
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-item {
+  padding: 5px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.menu-wrapper {
+  overflow: auto;
+}
+
+.navbar-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-button {
+  width: 30px;
+  height: 30px;
+  padding: 10px 10px;
+  border: none;
+}
+
+.img-button {
+  position: absolute;
+  height: 25px;
+  stroke: rgb(41, 40, 40);
+}
+
+.img-button-right {
+  right: -20px;
+}
+
+.img-button-left {
+  right: -3px;
+}
+
+.with-left-fader:before {
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 100%;
+  top: 0px;
+  right: 100%;
+  content: "";
+  background: linear-gradient(to left, white 0%, transparent 100%);
+}
+
+.with-right-fader::after {
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 100%;
+  top: 0px;
+  left: 13px;
+  right: 100%;
+  content: "";
+  background: linear-gradient(to left, rgba(255, 0, 0, 0), white);
+}
+
+.hide-scroll {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+/Edge */
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
