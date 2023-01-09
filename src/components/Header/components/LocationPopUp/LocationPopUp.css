@@ -1,6 +1,8 @@
-.popUp-wrapper {
+.popup-wrapper {
+  position: absolute;
+  top: 45px;
   width: 300px;
   height: 350px;
-  background-color: pink;
-  border-radius: 9px;
+  background-color: rgba(43, 213, 193, 0.738);
+  z-index: 100;
 }
