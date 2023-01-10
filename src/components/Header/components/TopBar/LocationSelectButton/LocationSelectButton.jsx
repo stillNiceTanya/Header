@@ -9,7 +9,6 @@ import "./LocationSelectButton.css";
 const LocationSelectButton = ({ onClick }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [areasData, setData] = useState(null);
-  let size = "50px";
 
   const handleTogglePopup = () => {
     setShowPopup(!showPopup);
@@ -55,7 +54,7 @@ const LocationSelectButton = ({ onClick }) => {
           icon={faCompass}
           className="location-icon"
         />
-        <span>Буэнос-Айрес</span>
+        <span>Сеул</span>
       </div>
 
       <div className="popup-preloader-wrapper">
@@ -70,8 +69,6 @@ const LocationSelectButton = ({ onClick }) => {
             className="preloader-img"
             src={preloader}
             alt=""
-            width={size}
-            height={size}
           />
         )}
       </div>
