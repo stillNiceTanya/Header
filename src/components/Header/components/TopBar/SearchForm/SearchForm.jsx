@@ -4,7 +4,7 @@ import "./SearchForm.css";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SearchForm = () => {
+const SearchForm = ({ placeholder }) => {
   return (
     <div className="input-wrapper">
       <FontAwesomeIcon
@@ -14,7 +14,7 @@ const SearchForm = () => {
 
       <input
         className="search-input"
-        placeholder="Учебное заведение, специальность или профессия"
+        placeholder={placeholder}
         type="text"
       />
     </div>
