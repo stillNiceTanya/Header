@@ -24,11 +24,20 @@ const LocationSelectButton = ({ onClick }) => {
     }
 
     const fetchData = async () => {
-      console.log(areasData);
       const data = await fetch("https://studika.ru/api/areas", requestOptions);
       const json = await data.json();
       setData(json);
-      console.log(json);
+
+      let areas = json.reduce((all, el) => {
+        all.push({ value: el.id, label: el.name });
+        if (el.cities) {
+          all.push(
+            ...el.cities.map((item) => ({ value: item.id, label: item.name }))
+          );
+        }
+        return all;
+      }, []);
+      console.log(areas);
     };
 
     fetchData().catch(console.error);
@@ -44,6 +53,7 @@ const LocationSelectButton = ({ onClick }) => {
         className="location-icon"
       />
       <span>Буэнос-Айрес</span>
+
       {showPopup && <LocationPopUp />}
     </div>
   );
