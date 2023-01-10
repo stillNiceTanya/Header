@@ -2,12 +2,14 @@ import { faCompass } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import LocationPopUp from "../../LocationPopUp/LocationPopUp";
+import preloader from "./img/loading-loader.svg";
 
 import "./LocationSelectButton.css";
 
 const LocationSelectButton = ({ onClick }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [areasData, setData] = useState(null);
+  let size = "50px";
 
   const handleTogglePopup = () => {
     setShowPopup(!showPopup);
@@ -37,24 +39,42 @@ const LocationSelectButton = ({ onClick }) => {
         }
         return all;
       }, []);
-      console.log(areas);
+      setData(areas);
     };
 
     fetchData().catch(console.error);
   }, [showPopup, areasData]);
 
   return (
-    <div
-      onClick={handleTogglePopup}
-      className="location-select-button"
-    >
-      <FontAwesomeIcon
-        icon={faCompass}
-        className="location-icon"
-      />
-      <span>Буэнос-Айрес</span>
+    <div>
+      <div
+        className="location-select-button"
+        onClick={handleTogglePopup}
+      >
+        <FontAwesomeIcon
+          icon={faCompass}
+          className="location-icon"
+        />
+        <span>Буэнос-Айрес</span>
+      </div>
 
-      {showPopup && <LocationPopUp />}
+      <div className="popup-preloader-wrapper">
+        {showPopup && (
+          <LocationPopUp
+            onClick={onClick}
+            options={areasData}
+          />
+        )}
+        {showPopup && areasData === null && (
+          <img
+            className="preloader-img"
+            src={preloader}
+            alt=""
+            width={size}
+            height={size}
+          />
+        )}
+      </div>
     </div>
   );
 };

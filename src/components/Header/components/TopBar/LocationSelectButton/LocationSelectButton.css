@@ -1,5 +1,4 @@
 .location-select-button {
-  position: relative;
   display: flex;
   align-items: center;
 }
@@ -7,4 +6,15 @@
 .location-icon {
   height: 20px;
   margin-right: 5px;
+}
+
+.preloader-img {
+  z-index: 999;
+  position: absolute;
+  top: 185px;
+  left: 125px;
+}
+
+.popup-preloader-wrapper {
+  position: relative;
 }
