@@ -55,16 +55,11 @@ const LocationSelectButton = ({ onClick }) => {
           icon={faCompass}
           className="location-icon"
         />
-        <span>Сеул</span>
+        <span>Пермь</span>
       </button>
 
       <div className="popup-preloader-wrapper">
-        {showPopup && (
-          <LocationPopUp
-            onClick={onClick}
-            options={areasData}
-          />
-        )}
+        {showPopup && <LocationPopUp options={areasData} />}
         {showPopup && areasData === null && (
           <img
             className="preloader-img"
