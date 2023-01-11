@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import LocationPopUp from "../../LocationPopUp/LocationPopUp";
 import preloader from "./img/loading-loader.svg";
+import OutsideAlerter from "../../hooks/useOutsideClick";
 
 import "./LocationSelectButton.css";
 
@@ -45,8 +46,8 @@ const LocationSelectButton = ({ onClick }) => {
   }, [showPopup, areasData]);
 
   return (
-    <div>
-      <div
+    <OutsideAlerter onOutsiteClick={handleTogglePopup}>
+      <button
         className="location-select-button"
         onClick={handleTogglePopup}
       >
@@ -55,7 +56,7 @@ const LocationSelectButton = ({ onClick }) => {
           className="location-icon"
         />
         <span>Сеул</span>
-      </div>
+      </button>
 
       <div className="popup-preloader-wrapper">
         {showPopup && (
@@ -72,7 +73,7 @@ const LocationSelectButton = ({ onClick }) => {
           />
         )}
       </div>
-    </div>
+    </OutsideAlerter>
   );
 };
 
