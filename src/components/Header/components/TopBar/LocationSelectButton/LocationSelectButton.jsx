@@ -4,14 +4,22 @@ import { useState, useEffect } from "react";
 import LocationPopUp from "../../LocationPopUp/LocationPopUp";
 import preloader from "./img/loading-loader.svg";
 import OutsideAlerter from "../../hooks/useOutsideClick";
+// import Button from "../../NavigationBar/Button/Button";
 
 import "./LocationSelectButton.css";
 
-const LocationSelectButton = ({ onClick }) => {
+const LocationSelectButton = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const [areasData, setData] = useState(null);
+  const [areasData, setData] = useState([]);
 
   const handleTogglePopup = () => {
+    setShowPopup(!showPopup);
+  };
+
+  const handlePopupOutsideClick = () => {
+    if (!showPopup) {
+      return;
+    }
     setShowPopup(!showPopup);
   };
 
@@ -21,7 +29,7 @@ const LocationSelectButton = ({ onClick }) => {
       headers: { "Content-Type": "application/json" },
     };
 
-    if (!showPopup || areasData) {
+    if (!showPopup || areasData.length > 0) {
       return;
     }
 
@@ -46,7 +54,7 @@ const LocationSelectButton = ({ onClick }) => {
   }, [showPopup, areasData]);
 
   return (
-    <OutsideAlerter onOutsiteClick={handleTogglePopup}>
+    <OutsideAlerter onOutsiteClick={handlePopupOutsideClick}>
       <button
         className="location-select-button"
         onClick={handleTogglePopup}
@@ -60,7 +68,7 @@ const LocationSelectButton = ({ onClick }) => {
 
       <div className="popup-preloader-wrapper">
         {showPopup && <LocationPopUp options={areasData} />}
-        {showPopup && areasData === null && (
+        {showPopup && !(areasData.length > 0) && (
           <img
             className="preloader-img"
             src={preloader}

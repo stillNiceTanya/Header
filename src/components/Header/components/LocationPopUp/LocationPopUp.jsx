@@ -10,13 +10,29 @@ import "./LocationPopUp.css";
 // кастомизировать попап красивым :)
 
 export default function LocationPopUp({ options }) {
+  // const options = [
+  //   { value: "chocolate", label: "Chocolate" },
+  //   { value: "strawberry", label: "Strawberry" },
+  //   { value: "vanilla", label: "Vanilla" },
+  // ];
+
   return (
     <div className="popup-wrapper">
       <Select
         options={options}
         closeMenuOnSelect={false}
         isMulti
-      ></Select>
+        menuIsOpen={true}
+        autoFocus
+        placeholder="Регион или город"
+        maxMenuHeight="300px"
+        styles={{
+          control: (baseStyles, state) => ({
+            ...baseStyles,
+            borderRadius: "15px",
+          }),
+        }}
+      />
     </div>
   );
 }
