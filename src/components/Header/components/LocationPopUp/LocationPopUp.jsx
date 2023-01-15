@@ -1,5 +1,5 @@
-import Select from "react-select";
-
+import Select, { components } from "react-select";
+// import Tooltip from "@atlaskit/tooltip";
 import "./LocationPopUp.css";
 
 //TODO
@@ -9,19 +9,29 @@ import "./LocationPopUp.css";
 // при сохранении положить список выбранных город в локал сторадж
 // кастомизировать попап красивым :)
 
-export default function LocationPopUp({ options }) {
-  // const options = [
-  //   { value: "chocolate", label: "Chocolate" },
-  //   { value: "strawberry", label: "Strawberry" },
-  //   { value: "vanilla", label: "Vanilla" },
-  // ];
+const controlStyles = {
+  border: "1px solid rgb(226, 223, 223)",
+  padding: "25px 10px 10px 10px",
+  background: "white",
+  color: "white",
+  borderRadius: "10px 10px 0 0",
+};
 
+const ControlComponent = (props) => (
+  <div style={controlStyles}>
+    <components.Control {...props} />
+  </div>
+);
+
+export default function LocationPopUp({ options }) {
   return (
     <div className="popup-wrapper">
       <Select
+        isClearable={false}
         options={options}
         closeMenuOnSelect={false}
         isMulti
+        components={{ Control: ControlComponent }}
         menuIsOpen={true}
         autoFocus
         placeholder="Регион или город"
@@ -30,6 +40,14 @@ export default function LocationPopUp({ options }) {
           control: (baseStyles, state) => ({
             ...baseStyles,
             borderRadius: "15px",
+            borderColor: state.isFocused ? "grey" : "grey",
+          }),
+          multiValue: (base) => ({
+            ...base,
+            border: `1px solid lightgrey`,
+            borderRadius: "9px",
+            backgroundColor: "rgb(226, 223, 223)",
+            padding: "2px",
           }),
         }}
       />

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import LocationPopUp from "../../LocationPopUp/LocationPopUp";
 import preloader from "./img/loading-loader.svg";
-import OutsideAlerter from "../../hooks/useOutsideClick";
+import OutsideClick from "../../hooks/useOutsideClick";
 // import Button from "../../NavigationBar/Button/Button";
 
 import "./LocationSelectButton.css";
@@ -17,10 +17,7 @@ const LocationSelectButton = () => {
   };
 
   const handlePopupOutsideClick = () => {
-    if (!showPopup) {
-      return;
-    }
-    setShowPopup(!showPopup);
+    setShowPopup(false);
   };
 
   useEffect(() => {
@@ -54,7 +51,10 @@ const LocationSelectButton = () => {
   }, [showPopup, areasData]);
 
   return (
-    <OutsideAlerter onOutsiteClick={handlePopupOutsideClick}>
+    <OutsideClick
+      onOutsiteClick={handlePopupOutsideClick}
+      className="location-select"
+    >
       <button
         className="location-select-button"
         onClick={handleTogglePopup}
@@ -66,17 +66,20 @@ const LocationSelectButton = () => {
         <span>Пермь</span>
       </button>
 
-      <div className="popup-preloader-wrapper">
-        {showPopup && <LocationPopUp options={areasData} />}
-        {showPopup && !(areasData.length > 0) && (
-          <img
-            className="preloader-img"
-            src={preloader}
-            alt=""
-          />
-        )}
-      </div>
-    </OutsideAlerter>
+      {showPopup && (
+        <div className="location-select-content">
+          {areasData.length > 0 ? (
+            <LocationPopUp options={areasData} />
+          ) : (
+            <img
+              className="preloader-img"
+              src={preloader}
+              alt=""
+            />
+          )}
+        </div>
+      )}
+    </OutsideClick>
   );
 };
 

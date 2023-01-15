@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from "react";
 
-function useOutsideAlerter(ref, callback) {
+function useOutsideClick(ref, callback) {
   useEffect(() => {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
+        console.log(event.target);
+        console.log(ref.current.contains(event.target));
         callback();
       }
     }
@@ -14,9 +16,9 @@ function useOutsideAlerter(ref, callback) {
   }, [ref, callback]);
 }
 
-export default function OutsideAlerter({ children, onOutsiteClick }) {
+export default function OutsideClick({ children, onOutsiteClick }) {
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, onOutsiteClick);
+  useOutsideClick(wrapperRef, onOutsiteClick);
 
   return <div ref={wrapperRef}>{children}</div>;
 }
