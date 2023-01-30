@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import LocationPopUp from "../../LocationPopUp/LocationPopUp";
 import preloader from "./img/loading-loader.svg";
 import OutsideClick from "../../hooks/useOutsideClick";
-// import Button from "../../NavigationBar/Button/Button";
 
 import "./LocationSelectButton.css";
 
