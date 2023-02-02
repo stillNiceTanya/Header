@@ -4,8 +4,7 @@ import Button from "../NavigationBar/Button/Button";
 import "./LocationPopUp.css";
 
 //TODO
-// при сохранении(только когда что-то выбрано, если не выбрано, то кнопка сохранить нерабочая), список сохраненных городов появляется в списке компонента lacatino-select
-// при сохранении положить список выбранных город в локал сторадж
+// при сохранении в локал сторадж, список сохраненных городов появляется в списке компонента lacation-select
 
 const controlStyles = {
   border: "1px solid rgb(226, 223, 223)",
@@ -15,8 +14,19 @@ const controlStyles = {
   borderRadius: "10px 10px 0 0",
 };
 
+const SELECT_VALUE_KEY = "MySelectValue";
+
 export default function LocationPopUp({ options }) {
-  const [isDataChoosen, setDataChoosen] = useState([]);
+  const [selectedCities, setSelectedCities] = useState(() => {
+    const selectedCitiesLocalStorage = localStorage.getItem(SELECT_VALUE_KEY);
+    try {
+      return JSON.parse(selectedCitiesLocalStorage) || [];
+    } catch {
+      return [];
+    }
+  });
+
+  console.log(selectedCities);
 
   const multiValueContainer = ({ selectProps, data }) => {
     const label = data.label;
@@ -34,21 +44,24 @@ export default function LocationPopUp({ options }) {
     </div>
   );
 
-  const handleChange = (e) => {
-    // if (e) setDataChoosen(true);
-    // let array = e.map((el) => el.label);
-    setDataChoosen(e);
+  const handleChange = (selected) => {
+    setSelectedCities(selected);
   };
+
+  const handleClickPutToLocalStorage = () => {
+    console.log(selectedCities);
+    localStorage.setItem(SELECT_VALUE_KEY, JSON.stringify(selectedCities));
+  };
+
   return (
     <div className="popup-wrapper">
       <Select
-        // formatGroupLabel={formatGroupLabel}
-        // onChange={onChange}
         isClearable={false}
         hideSelectedOptions={false}
         options={options}
         closeMenuOnSelect={false}
         isMulti
+        defaultValue={selectedCities}
         onChange={handleChange}
         components={{
           MultiValueContainer: multiValueContainer,
@@ -98,11 +111,12 @@ export default function LocationPopUp({ options }) {
         }}
       />
 
-      {isDataChoosen.length !== 0 ? (
-        <Button className="pop-up-button active ">Сохранить</Button>
-      ) : (
-        <Button className="pop-up-button passive">Сохранить</Button>
-      )}
+      <Button
+        onClick={handleClickPutToLocalStorage}
+        className="pop-up-button active"
+      >
+        Сохранить
+      </Button>
     </div>
   );
 }
