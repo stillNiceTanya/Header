@@ -4,7 +4,6 @@ import SearchForm from "./components/TopBar/SearchForm/SearchForm";
 import UserCard from "./components/TopBar/UserCard/UserCard";
 import Navbar from "./components/NavigationBar/Navbar/Navbar";
 import BurgerMenu from "./components/TopBar/BurgerMenu/BurgerMenu";
-import LocationPopUp from "./components/LocationPopUp/LocationPopUp";
 
 import "./styles.css";
 

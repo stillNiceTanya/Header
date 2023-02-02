@@ -32,7 +32,6 @@ const LocationSelectButton = () => {
     const fetchData = async () => {
       const data = await fetch("https://studika.ru/api/areas", requestOptions);
       const json = await data.json();
-      setData(json);
 
       let areas = json.reduce((all, el) => {
         all.push({ value: el.id, label: el.name });
