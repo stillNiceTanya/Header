@@ -34,3 +34,10 @@
 .location-select {
   position: relative;
 }
+
+.location-text {
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 85px;
+  text-overflow: ellipsis;
+}

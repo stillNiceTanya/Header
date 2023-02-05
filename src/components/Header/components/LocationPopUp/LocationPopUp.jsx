@@ -14,19 +14,22 @@ const controlStyles = {
   borderRadius: "10px 10px 0 0",
 };
 
-const SELECT_VALUE_KEY = "MySelectValue";
+// const SELECT_VALUE_KEY = "MySelectValue";
 
-export default function LocationPopUp({ options }) {
-  const [selectedCities, setSelectedCities] = useState(() => {
-    const selectedCitiesLocalStorage = localStorage.getItem(SELECT_VALUE_KEY);
-    try {
-      return JSON.parse(selectedCitiesLocalStorage) || [];
-    } catch {
-      return [];
-    }
-  });
-
-  console.log(selectedCities);
+export default function LocationPopUp({
+  options,
+  selectedCities,
+  onChange,
+  onSave,
+}) {
+  // const [selectedCities, setSelectedCities] = useState(() => {
+  //   const selectedCitiesLocalStorage = localStorage.getItem(SELECT_VALUE_KEY);
+  //   try {
+  //     return JSON.parse(selectedCitiesLocalStorage) || [];
+  //   } catch {
+  //     return [];
+  //   }
+  // });
 
   const multiValueContainer = ({ selectProps, data }) => {
     const label = data.label;
@@ -44,14 +47,14 @@ export default function LocationPopUp({ options }) {
     </div>
   );
 
-  const handleChange = (selected) => {
-    setSelectedCities(selected);
-  };
+  // const handleChange = (selected) => {
+  //   setSelectedCities(selected);
+  // };
 
-  const handleClickPutToLocalStorage = () => {
-    console.log(selectedCities);
-    localStorage.setItem(SELECT_VALUE_KEY, JSON.stringify(selectedCities));
-  };
+  // const handleSave = () => {
+  //   console.log(selectedCities);
+  //   localStorage.setItem(SELECT_VALUE_KEY, JSON.stringify(selectedCities));
+  // };
 
   return (
     <div className="popup-wrapper">
@@ -62,7 +65,7 @@ export default function LocationPopUp({ options }) {
         closeMenuOnSelect={false}
         isMulti
         defaultValue={selectedCities}
-        onChange={handleChange}
+        onChange={onChange}
         components={{
           MultiValueContainer: multiValueContainer,
           Control: ControlComponent,
@@ -112,7 +115,7 @@ export default function LocationPopUp({ options }) {
       />
 
       <Button
-        onClick={handleClickPutToLocalStorage}
+        onClick={onSave}
         className="pop-up-button active"
       >
         Сохранить
