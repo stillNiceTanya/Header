@@ -1,10 +1,6 @@
 import Select, { components } from "react-select";
-import React, { useState } from "react";
 import Button from "../NavigationBar/Button/Button";
 import "./LocationPopUp.css";
-
-//TODO
-// при сохранении в локал сторадж, список сохраненных городов появляется в списке компонента lacation-select
 
 const controlStyles = {
   border: "1px solid rgb(226, 223, 223)",
@@ -14,23 +10,12 @@ const controlStyles = {
   borderRadius: "10px 10px 0 0",
 };
 
-// const SELECT_VALUE_KEY = "MySelectValue";
-
 export default function LocationPopUp({
   options,
   selectedCities,
   onChange,
   onSave,
 }) {
-  // const [selectedCities, setSelectedCities] = useState(() => {
-  //   const selectedCitiesLocalStorage = localStorage.getItem(SELECT_VALUE_KEY);
-  //   try {
-  //     return JSON.parse(selectedCitiesLocalStorage) || [];
-  //   } catch {
-  //     return [];
-  //   }
-  // });
-
   const multiValueContainer = ({ selectProps, data }) => {
     const label = data.label;
     const allSelected = selectProps.value;
@@ -46,15 +31,6 @@ export default function LocationPopUp({
       <components.Control {...props} />
     </div>
   );
-
-  // const handleChange = (selected) => {
-  //   setSelectedCities(selected);
-  // };
-
-  // const handleSave = () => {
-  //   console.log(selectedCities);
-  //   localStorage.setItem(SELECT_VALUE_KEY, JSON.stringify(selectedCities));
-  // };
 
   return (
     <div className="popup-wrapper">
