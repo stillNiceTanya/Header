@@ -10,27 +10,27 @@ const controlStyles = {
   borderRadius: "10px 10px 0 0",
 };
 
+const ControlComponent = (props) => (
+  <div style={controlStyles}>
+    <components.Control {...props} />
+  </div>
+);
+
 export default function LocationPopUp({
   options,
   selectedCities,
   onChange,
   onSave,
 }) {
-  const multiValueContainer = ({ selectProps, data }) => {
+  const MultiValueContainer = ({ selectProps, data }) => {
     const label = data.label;
     const allSelected = selectProps.value;
     const index = allSelected.findIndex((selected) => selected.label === label);
     const isFirstSelected = index === 0;
-    const labelSuffix = isFirstSelected ? ` (${allSelected.length})` : ", ";
-    const val = `${labelSuffix}${label}`;
+    const labelPrefix = isFirstSelected ? ` (${allSelected.length})` : ", ";
+    const val = `${labelPrefix}${label}`;
     return val;
   };
-
-  const ControlComponent = (props) => (
-    <div style={controlStyles}>
-      <components.Control {...props} />
-    </div>
-  );
 
   return (
     <div className="popup-wrapper">
@@ -43,12 +43,11 @@ export default function LocationPopUp({
         defaultValue={selectedCities}
         onChange={onChange}
         components={{
-          MultiValueContainer: multiValueContainer,
+          MultiValueContainer,
           Control: ControlComponent,
           IndicatorsContainer: () => null,
         }}
-        IndicatorsContainer={{ isDisabled: true }}
-        menuIsOpen={true}
+        menuIsOpen
         downChevron={false}
         autoFocus
         placeholder="Регион или город"
@@ -57,7 +56,6 @@ export default function LocationPopUp({
           control: (baseStyles, state) => ({
             ...baseStyles,
             borderRadius: "15px",
-            borderColor: state.isFocused ? "grey" : "grey",
             backgroundColor: "rgb(226, 223, 223)",
             minHeight: "53px",
           }),
@@ -68,7 +66,6 @@ export default function LocationPopUp({
             backgroundColor: "rgb(226, 223, 223)",
             padding: "2px",
           }),
-
           valueContainer: (base) => ({
             ...base,
             textOverflow: "ellipsis",
@@ -79,7 +76,6 @@ export default function LocationPopUp({
             flexDirection: "column",
             alignItems: "flex-start",
           }),
-
           menu: (base) => ({
             ...base,
             marginTop: 0,
@@ -92,7 +88,7 @@ export default function LocationPopUp({
 
       <Button
         onClick={onSave}
-        className="pop-up-button active"
+        className="pop-up-button"
       >
         Сохранить
       </Button>

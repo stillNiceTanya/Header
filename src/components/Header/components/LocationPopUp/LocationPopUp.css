@@ -23,12 +23,3 @@
   transform: scale(0.99);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.24);
 }
-
-.pop-up-button.active {
-  background-color: #2684ff;
-}
-
-.pop-up-button.passive {
-  background-color: rgb(226, 223, 223);
-  cursor: not-allowed;
-}

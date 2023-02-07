@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import LocationPopUp from "../../LocationPopUp/LocationPopUp";
 import preloader from "./img/loading-loader.svg";
 import OutsideClick from "../../hooks/useOutsideClick";
+import fetchAreas from "../../../../../api/api";
 
 import "./LocationSelectButton.css";
 
-const SELECT_VALUE_KEY = "MySelectValue";
+const selectedLocationLocalStorageKey = "MySelectValue";
 const defaultCity = "Пермь";
 
 const LocationSelectButton = () => {
@@ -15,7 +16,9 @@ const LocationSelectButton = () => {
   const [areasData, setData] = useState([]);
 
   const [selectedCities, setSelectedCities] = useState(() => {
-    const selectedCitiesLocalStorage = localStorage.getItem(SELECT_VALUE_KEY);
+    const selectedCitiesLocalStorage = localStorage.getItem(
+      selectedLocationLocalStorageKey
+    );
     try {
       return JSON.parse(selectedCitiesLocalStorage) || [];
     } catch {
@@ -28,7 +31,10 @@ const LocationSelectButton = () => {
   });
 
   const handleSave = () => {
-    localStorage.setItem(SELECT_VALUE_KEY, JSON.stringify(selectedCities));
+    localStorage.setItem(
+      selectedLocationLocalStorageKey,
+      JSON.stringify(selectedCities)
+    );
     const newCity = selectedCities.map((item) => item.label).join(", ");
     setCurrentCity(newCity || defaultCity);
     setShowPopup(false);
@@ -47,33 +53,16 @@ const LocationSelectButton = () => {
   };
 
   useEffect(() => {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    };
-
     if (!showPopup || areasData.length > 0) {
       return;
     }
 
-    const fetchData = async () => {
-      const data = await fetch("https://studika.ru/api/areas", requestOptions);
-      const json = await data.json();
-
-      let areas = json.reduce((all, el) => {
-        all.push({ value: el.id, label: el.name });
-        if (el.cities) {
-          all.push(
-            ...el.cities.map((item) => ({ value: item.id, label: item.name }))
-          );
-        }
-        return all;
-      }, []);
-      setData(areas);
-    };
-
-    fetchData().catch(console.error);
-  }, [showPopup, areasData]);
+    fetchAreas()
+      .then((data) => {
+        setData(data);
+      })
+      .catch(console.error);
+  }, [showPopup, areasData]); //react
 
   return (
     <OutsideClick
