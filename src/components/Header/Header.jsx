@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "./components/TopBar/Logo/Logo";
 import LocationSelectButton from "./components/TopBar/LocationSelectButton/LocationSelectButton";
 import SearchForm from "./components/TopBar/SearchForm/SearchForm";
@@ -21,7 +20,9 @@ export default function Header() {
             <LocationSelectButton />
           </div>
           <div className="search-wrapper">
-            <SearchForm />
+            <SearchForm
+              placeholder={"Учебное заведение, специальность или профессия"}
+            />
           </div>
           <UserCard />
         </div>

@@ -1,0 +1,25 @@
+.popup-wrapper {
+  /* position: relative; */
+  width: 300px;
+  height: 350px;
+  background-color: white;
+  z-index: 10;
+}
+
+.pop-up-button {
+  position: absolute;
+  text-align: center;
+  top: 391px;
+  width: 300px;
+  height: 40px;
+  background-color: #2684ff;
+  border: none;
+  bottom: 0;
+  box-shadow: 0 0 0 1px hsl(0deg 0% 0% / 10%), 0 4px 11px hsl(0deg 0% 0% / 10%);
+  border-radius: 0 0 4px 4px;
+}
+
+.pop-up-button:hover {
+  transform: scale(0.99);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.24);
+}
