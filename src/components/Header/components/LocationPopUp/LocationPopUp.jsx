@@ -16,22 +16,22 @@ const ControlComponent = (props) => (
   </div>
 );
 
+const MultiValueContainer = ({ selectProps, data }) => {
+  const label = data.label;
+  const allSelected = selectProps.value;
+  const index = allSelected.findIndex((selected) => selected.label === label);
+  const isFirstSelected = index === 0;
+  const labelPrefix = isFirstSelected ? ` (${allSelected.length})` : ", ";
+  const val = `${labelPrefix}${label}`;
+  return val;
+};
+
 export default function LocationPopUp({
   options,
   selectedCities,
   onChange,
   onSave,
 }) {
-  const MultiValueContainer = ({ selectProps, data }) => {
-    const label = data.label;
-    const allSelected = selectProps.value;
-    const index = allSelected.findIndex((selected) => selected.label === label);
-    const isFirstSelected = index === 0;
-    const labelPrefix = isFirstSelected ? ` (${allSelected.length})` : ", ";
-    const val = `${labelPrefix}${label}`;
-    return val;
-  };
-
   return (
     <div className="popup-wrapper">
       <Select

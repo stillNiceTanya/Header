@@ -19,7 +19,7 @@
   border-radius: 0 0 4px 4px;
 }
 
-.pop-up-button.active:active {
+.pop-up-button:hover {
   transform: scale(0.99);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.24);
 }

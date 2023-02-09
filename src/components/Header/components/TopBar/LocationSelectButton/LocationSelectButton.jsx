@@ -62,7 +62,7 @@ const LocationSelectButton = () => {
         setData(data);
       })
       .catch(console.error);
-  }, [showPopup, areasData]); //react
+  }, [showPopup, areasData]);
 
   return (
     <OutsideClick
